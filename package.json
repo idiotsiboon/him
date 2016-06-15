@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/idiotsiboon/tester.git"
+    "url": "git+https://github.com/idiotsiboon/him.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/idiotsiboon/tester/issues"
+    "url": "https://github.com/idiotsiboon/him/issues"
   },
-  "homepage": "https://github.com/idiotsiboon/tester#readme",
+  "homepage": "https://github.com/idiotsiboon/him#readme",
   "devDependencies": {
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",

@@ -1,6 +1,6 @@
 var Student = React.createClass({});
 
-var screenScoreBoard = React.createClass({
+var ScreenScoreBoard = React.createClass({
   renderStudents: function () {
     return "";
   },

@@ -1,6 +1,6 @@
 /* global screenGroupList */
 
-var screenGroupList = React.createClass({
+var ScreenGroupList = React.createClass({
   renderButtonNavFeeds: function () {
     return "";
   },
