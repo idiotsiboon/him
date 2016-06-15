@@ -13,7 +13,7 @@ window.ScreenFeedsAndCreatePost = React.createClass({
   renderCreatePost: function () {
     return (
       <div className="bar bar-standard bar-footer-secondary">
-        <input type="search" placeholder="Start Here"></input>
+        <input type="search" placeholder="Start Here" />
         <a className="btn btn-positive btn-block">Post</a>
       </div>
     );
