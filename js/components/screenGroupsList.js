@@ -10,9 +10,15 @@ var Group = React.createClass({
   }
 });
 window.ScreenGroupList = React.createClass({
+  handleNavFeeds: function () {
+    this.props.setRoute("ScoreBoard");
+  },
+  handleHeadAddGroup: function () {
+    this.props.setRoute("GroupDetails");
+  },
   renderButtonNavFeeds: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavFeeds} className="tab-item">
         <span className="icon icon-list"></span>
         <span className="tab-label">Feeds</span>
       </a>
@@ -20,10 +26,7 @@ window.ScreenGroupList = React.createClass({
   },
   renderButtonHeadAddGroup: function () {
     return (
-      <a className="tab-item">
-        <span className="icon icon-plus"></span>
-        <span className="tab-label">New</span>
-      </a>
+      <a onClick={this.handleHeadAddGroup} className="icon icon-plus pull-left"></a>
     );
   },
   renderListOfGroups: function () {

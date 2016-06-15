@@ -19,6 +19,12 @@ var Contact = React.createClass({
 
 
 window.ScreenAddContact = React.createClass({
+  handleNavFeeds: function () {
+    this.props.setRoute("FeedsAndCreatePost");
+  },
+  handleNavGroupList: function () {
+    this.props.setRoute("GroupList");
+  },
   renderMsgNoStudent: function () {
     return "";
   },
@@ -35,7 +41,7 @@ window.ScreenAddContact = React.createClass({
   },
   renderButtonNavFeeds: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavFeeds} className="tab-item">
         <span className="icon icon-list"></span>
         <span className="tab-label">Feeds</span>
       </a>
@@ -43,7 +49,7 @@ window.ScreenAddContact = React.createClass({
   },
   renderButtonNavGroupList: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavGroupList} className="tab-item">
         <span className="icon icon-bars"></span>
         <span className="tab-label">Groups</span>
       </a>

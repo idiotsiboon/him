@@ -10,6 +10,15 @@ var Post = React.createClass({
 });
 
 window.ScreenFeedsAndCreatePost = React.createClass({
+  handleNavScoreBoard: function () {
+    this.props.setRoute("ScoreBoard");
+  },
+  handleNavGroupList: function () {
+    this.props.setRoute("GroupList");
+  },
+  handleNavCreatePost: function () {
+    this.props.setRoute("FeedsAndCreatePost");
+  },
   renderCreatePost: function () {
     return (
       <div className="bar bar-standard bar-footer-secondary">
@@ -27,7 +36,7 @@ window.ScreenFeedsAndCreatePost = React.createClass({
   },
   renderButtonNavScoreBoard: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavScoreBoard} className="tab-item">
         <span className="icon icon-star"></span>
         <span className="tab-label">Scores</span>
       </a>
@@ -35,7 +44,7 @@ window.ScreenFeedsAndCreatePost = React.createClass({
   },
   renderButtonNavGroupList: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavGroupList} className="tab-item">
         <span className="icon icon-bars"></span>
         <span className="tab-label">Groups</span>
       </a>
@@ -43,7 +52,7 @@ window.ScreenFeedsAndCreatePost = React.createClass({
   },
   renderButtonNavCreatePost: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavCreatePost} className="tab-item">
         <span className="icon icon-compose"></span>
         <span className="tab-label">Post</span>
       </a>

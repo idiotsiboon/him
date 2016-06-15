@@ -14,6 +14,12 @@ var Contact = React.createClass({
 });
 
 window.ScreenScoreBoard = React.createClass({
+  handleNavFeeds: function () {
+    this.props.setRoute("FeedsAndCreatePost");
+  },
+  handleNavGroupDetails: function () {
+    this.props.setRoute("GroupDetails");
+  },
   renderContacts: function () {
     return (
       <ul className="table-view">
@@ -23,7 +29,7 @@ window.ScreenScoreBoard = React.createClass({
   },
   renderButtonNavGroupDetails: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavGroupDetails} className="tab-item">
         <span className="icon">?</span>
         <span className="tab-label">About</span>
       </a>
@@ -31,7 +37,7 @@ window.ScreenScoreBoard = React.createClass({
   },
   renderButtonNavFeeds: function () {
     return (
-      <a className="tab-item">
+      <a onClick={this.handleNavFeeds} className="tab-item">
         <span className="icon icon-list"></span>
         <span className="tab-label">Feeds</span>
       </a>
