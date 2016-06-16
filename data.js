@@ -1,16 +1,34 @@
 
 window.GroupsJson = [
     {
-      "id": "576265f4a9496b6c4ffdb24a",
-      "groupName": "LUXURIA",
-      "groupRules": "Anim fugiat amet deserunt veniam excepteur qui proident incididunt. Dolore quis mollit minim nostrud exercitation.",
-      "users": ["576265f4f92109d1d05b517b","576265f417003fd1d77196b1","576265f4dae8b97c23ba22a2"]
+    "id": "576265f4a9496b6c4ffdb24a",
+    "groupName": "LUXURIA",
+    "groupRules": "Anim fugiat amet deserunt veniam excepteur qui proident incididunt. Dolore quis mollit minim nostrud exercitation.",
+    "users": ["576265f4f92109d1d05b517b","576265f417003fd1d77196b1","576265f4dae8b97c23ba22a2"],
+    "posts":
+      [
+        "576265f4ebc594e544bf9a46",
+        "576265f4d93219e51c3697aa",
+        "576265f479864e70140b08fe",
+        "576265f4b05d4daa823d0bee",
+        "576265f4db412219653f0658",
+        "576265f49fd311176f137c9b"
+      ]
     },
     {
-      "id": "576265f4dc247758a7b1e699",
-      "groupName": "TUBESYS",
-      "groupRules": "Excepteur fugiat amet est laborum pariatur est officia. Cupidatat ipsum est ea esse est pariatur est sit sunt eiusmod ad elit ipsum adipisicing.",
-      "users": ["576265f46aea545219deec9e","576265f4ab6ac4bba9bd5598","576265f451e176f8bc5e2d50"]
+    "id": "576265f4dc247758a7b1e699",
+    "groupName": "TUBESYS",
+    "groupRules": "Excepteur fugiat amet est laborum pariatur est officia. Cupidatat ipsum est ea esse est pariatur est sit sunt eiusmod ad elit ipsum adipisicing.",
+    "users": ["576265f46aea545219deec9e","576265f4ab6ac4bba9bd5598","576265f451e176f8bc5e2d50"],
+    "posts":
+    [
+      "576265f469f6cd8465a96c4d",
+      "576265f453f4a0fbad5eb410",
+      "576265f4f7a41701fa4bf09d",
+      "576265f4c18044c7daaf8afd",
+      "576265f448e795a292a8b34f"
+    ]
+
     }
   ];
 
@@ -121,3 +139,11 @@ window.ContactsJson = [
       "posts": ["576265f4a709dde4d31321fb","576265f448e795a292a8b34f"]
     }
   ];
+
+/*
+  PostsJson.map(function (o) {
+    if (o.groupId == "576265f4dc247758a7b1e699") {
+      console.log(o.id);
+    }
+  })
+  */
