@@ -1,7 +1,8 @@
 /* global screenGroupList */
 var Group = React.createClass({
   getStrength: function () {
-    return this.props.groupObj.posts.length();
+    // no of unread posts..for the time being no of users
+    return this.props.groupObj.users.length;
   },
   render: function () {
     return (

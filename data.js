@@ -1,5 +1,5 @@
 
-var  GroupsJson = [
+window.GroupsJson = [
     {
       "id": "576265f4a9496b6c4ffdb24a",
       "groupName": "LUXURIA",
@@ -14,7 +14,7 @@ var  GroupsJson = [
     }
   ];
 
-var  PostsJson = [
+window.PostsJson = [
     {
       "id": "576265f4ebc594e544bf9a46",
       "groupId": "576265f4a9496b6c4ffdb24a",
@@ -89,7 +89,7 @@ var  PostsJson = [
     }
   ];
 
-  var ContactsJson = [
+window.ContactsJson = [
     {
       "id": "576265f4f92109d1d05b517b",
       "contactName": "Pearl Le",
