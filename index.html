@@ -54,8 +54,194 @@
     <script type="text/babel" src="./js/components/app.js" ></script>
 
     <script type="text/babel">
+    /*
+      e6a34f64-e036-43eb-8e8f-2b0acc182c36
+    */
+    var PostsJson = [{
+  _id: "82f758af-bb8c-4aa7-a315-510b04942749",
+  contact_id: null,
+  group_id: null,
+  content: "Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst."
+}, {
+  _id: "772198eb-8e6f-474d-899d-83e07cf678b7",
+  contactId: null,
+  groupId: null,
+  content: "Etiam pretium iaculis justo."
+}, {
+  "_id": "954721b5-e2ba-48f0-8a14-2ea1afaf1b53",
+  contactId: null,
+  groupId: null,
+  content: "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam."
+}, {
+  "_id": "01126516-5df1-41f8-8690-054ba0064a7b",
+  contactId: null,
+  groupId: null,
+  content: "Nulla nisl."
+}, {
+  "_id": "4c6a0dc7-888b-47a0-8d79-45ba1dfe57dc",
+  contactId: null,
+  groupId: null,
+  content: "Donec vitae nisi."
+}]
+    var GroupsJson =[{
+      id: "7d3c0b5e-bcdf-4458-a4f2-b240994efdda",
+      groupName: "Octinoxate, Zinc Oxide, Avobenzone",
+      groupRules: "Vestibulum ante ipsum primis in faucibus ia Curae; Nulla dapibus dolor vel est."
+    }, {
+      id: "d4e3a9d4-6b4e-4216-8043-ec3ef31b3a6c",
+      groupName: "NIFEDIPINE",
+      groupRules: "Maecenas leo odio, condimentum id,  sed, justo. Pellentesque viverra pede ac diam."
+    }, {
+      id: "19161c3b-dd6d-4cb2-a5b8-ca210acf411c",
+      groupName: "Phenol",
+      groupRules: "Cras non velit nec nisi vulputate nonummy."
+    }, {
+      id: "e6a34f64-e036-43eb-8e8f-2b0acc182c36",
+      groupName: "olmesartan medoxomil",
+      groupRules: "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis."
+    }, {
+      id: "1a9ac279-8216-41c2-af43-6bda7fb0cd27",
+      groupName: "ACETAMINOPHEN, PHENYLEPHRINE HYDROCHLORIDE",
+      groupRules: "Donec ut mauris eget massa tempor convallis."
+    }];
 
-    ReactDOM.render(<App />, document.getElementById("root"));
+    var ContactsJson = [{
+      _id: "4bcec213-7d26-4039-967e-3d7013c17b50",
+      group_id: "1a9ac279-8216-41c2-af43-6bda7fb0cd27",
+      first_name: "Shirley",
+      last_name: "Marshall",
+      email: "smarshall0@creativecommons.org",
+      gender: "Female"
+    }, {
+      _id: "c29aabd1-0ea4-45a0-8c6c-f229026e2d0c",
+      group_id: "d4e3a9d4-6b4e-4216-8043-ec3ef31b3a6c",
+      first_name: "Donald",
+      last_name: "Garcia",
+      email: "dgarcia1@telegraph.co.uk",
+      gender: "Male"
+    }, {
+      _id: "53f5eac1-58ff-44c3-9627-3ec9787e4d14",
+      group_id: "19161c3b-dd6d-4cb2-a5b8-ca210acf411c",
+      first_name: "Victor",
+      last_name: "Ross",
+      email: "vross2@economist.com",
+      gender: "Male"
+    }, {
+      _id: "9626c379-a467-4028-b4bd-7ebb3fe6548b",
+      first_name: "Lisa",
+      last_name: "Meyer",
+      email: "lmeyer3@freewebs.com",
+      gender: "Female"
+    }, {
+      _id: "e2fece26-cf5d-4cf3-bbe0-e257f5de5a66",
+      group_id: "1a9ac279-8216-41c2-af43-6bda7fb0cd27",
+      first_name: "Kimberly",
+      last_name: "Morales",
+      email: "kmorales4@cafepress.com",
+      gender: "Female"
+    }, {
+      _id: "26b12c2c-901c-438c-a531-4edcc6c3d32a",
+      group_id: "d4e3a9d4-6b4e-4216-8043-ec3ef31b3a6c",
+      first_name: "Brian",
+      last_name: "Jacobs",
+      email: "bjacobs5@exblog.jp",
+      gender: "Male"
+    }, {
+      _id: "8483a571-0514-4c61-ac61-58707f3bd9df",
+      group_id: "19161c3b-dd6d-4cb2-a5b8-ca210acf411c",
+      first_name: "Tammy",
+      last_name: "Chavez",
+      email: "tchavez6@cbc.ca",
+      gender: "Female"
+    }, {
+      _id: "117cac61-a472-419f-9181-ca3834643cad",
+      group_id: "19161c3b-dd6d-4cb2-a5b8-ca210acf411c",
+      first_name: "Karen",
+      last_name: "Morgan",
+      email: "kmorgan7@jiathis.com",
+      gender: "Female"
+    }, {
+      _id: "987d1cc9-c118-42c7-a095-74ef58be8a85",
+      first_name: "Kelly",
+      last_name: "Lawrence",
+      email: "klawrence8@surveymonkey.com",
+      gender: "Female"
+    }, {
+      _id: "a386f6cd-b803-4a02-be10-1737989e174b",
+      group_id: "1a9ac279-8216-41c2-af43-6bda7fb0cd27",
+      first_name: "Marie",
+      last_name: "Ryan",
+      email: "mryan9@craigslist.org",
+      gender: "Female"
+    }, {
+      _id: "58a9bbe2-c51d-44ec-844f-d22c0e96ebce",
+      group_id: "d4e3a9d4-6b4e-4216-8043-ec3ef31b3a6c",
+      first_name: "David",
+      last_name: "Arnold",
+      email: "darnolda@reddit.com",
+      gender: "Male"
+    }, {
+      _id: "2e6d4774-f6d4-4de2-8f84-e9e677550612",
+      group_id: "19161c3b-dd6d-4cb2-a5b8-ca210acf411c",
+      first_name: "Steven",
+      last_name: "Webb",
+      email: "swebbb@ifeng.com",
+      gender: "Male"
+    }, {
+      _id: "d1916bfb-b46d-400e-8daa-d5790f4f1162",
+      first_name: "Johnny",
+      last_name: "Mendoza",
+      email: "jmendozac@google.it",
+      gender: "Male"
+    }, {
+      _id: "4f3d04e3-b774-4691-9219-5b5d33ccdb0a",
+      group_id: "19161c3b-dd6d-4cb2-a5b8-ca210acf411c",
+      first_name: "Linda",
+      last_name: "Payne",
+      email: "lpayned@linkedin.com",
+      gender: "Female"
+    }, {
+      _id: "41198bd2-2f6f-4c8a-9f45-dc957679a1c0",
+      group_id: "1a9ac279-8216-41c2-af43-6bda7fb0cd27",
+      first_name: "Paula",
+      last_name: "Roberts",
+      email: "probertse@seesaa.net",
+      gender: "Female"
+    }, {
+      _id: "56214aa0-ed27-44d7-ba0a-09db6fbc70ae",
+      group_id: "d4e3a9d4-6b4e-4216-8043-ec3ef31b3a6c",
+      first_name: "Julie",
+      last_name: "Morrison",
+      email: "jmorrisonf@wordpress.org",
+      gender: "Female"
+    }, {
+      _id: "a44753c1-0005-456e-8845-fca7e12181a5",
+      first_name: "William",
+      last_name: "Davis",
+      email: "wdavisg@networksolutions.com",
+      gender: "Male"
+    }, {
+      _id: "c6f369a8-31d3-46fc-9c06-6ce70ab9f583",
+      first_name: "Doris",
+      last_name: "West",
+      email: "dwesth@patch.com",
+      gender: "Female"
+    }, {
+      _id: "fb3fe38f-e0df-489b-90ed-51a196391087",
+      first_name: "Kathleen",
+      last_name: "Willis",
+      email: "kwillisi@themeforest.net",
+      gender: "Female"
+    }, {
+      _id: "1ab031ba-092d-42bb-9d05-df595fe6ceb4",
+      group_id: "1a9ac279-8216-41c2-af43-6bda7fb0cd27",
+      first_name: "Jeremy",
+      last_name: "Snyder",
+      email: "jsnyderj@nymag.com",
+      gender: "Male"
+    }];
+
+    ReactDOM.render(<App jsonGroups={GroupsJson} jsonContacts={ContactsJson} jsonPosts={PostsJson}/>, document.getElementById("root"));
 
     </script>
 

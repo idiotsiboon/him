@@ -1,10 +1,16 @@
 /* global screenGroupList */
 var Group = React.createClass({
+  retStrength: function () {
+    return "5";
+  },
   render: function () {
     return (
       <li className="table-view-cell">
-        <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
-        {this.props.groupName}
+        <a className="navigate-right">
+          <span className="badge">{this.retStrength()}</span>
+          <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
+          {this.props.groupName}
+        </a>
       </li>
     );
   }
@@ -30,9 +36,13 @@ window.ScreenGroupList = React.createClass({
     );
   },
   renderListOfGroups: function () {
+    var jsonGroups = this.props.getGroups();
+    var arrGroups = jsonGroups.map(function (o) {
+      return <Group groupName={o.groupName} />;
+    });
     return (
       <ul className="table-view">
-        <Group groupName="abc" />
+        {arrGroups}
       </ul>
     );
   },
