@@ -21,6 +21,9 @@ window.App = React.createClass({
   getGroups: function () {
     return this.props.jsonGroups;
   },
+  getPosts: function () {
+    return this.props.jsonPosts;
+  },
   render() {
     const route = this.state.route;
 

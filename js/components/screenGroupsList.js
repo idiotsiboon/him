@@ -1,7 +1,7 @@
 /* global screenGroupList */
 var Group = React.createClass({
   getStrength: function () {
-    return "5";
+    return this.props.groupObj.posts.length();
   },
   render: function () {
     return (
@@ -9,7 +9,7 @@ var Group = React.createClass({
         <a className="navigate-right">
           <span className="badge">{this.getStrength()}</span>
           <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
-          {this.props.groupName}
+          {this.props.groupObj.groupName}
         </a>
       </li>
     );
@@ -38,7 +38,7 @@ window.ScreenGroupList = React.createClass({
   renderListOfGroups: function () {
     var jsonGroups = this.props.getGroups();
     var arrGroups = jsonGroups.map(function (o) {
-      return <Group groupName={o.groupName} />;
+      return <Group groupObj={o} />;
     });
     return (
       <ul className="table-view">
