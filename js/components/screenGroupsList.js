@@ -1,13 +1,13 @@
 /* global screenGroupList */
 var Group = React.createClass({
-  retStrength: function () {
+  getStrength: function () {
     return "5";
   },
   render: function () {
     return (
       <li className="table-view-cell">
         <a className="navigate-right">
-          <span className="badge">{this.retStrength()}</span>
+          <span className="badge">{this.getStrength()}</span>
           <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
           {this.props.groupName}
         </a>

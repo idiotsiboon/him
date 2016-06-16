@@ -15,10 +15,10 @@ window.App = React.createClass({
   setRoute(r) {
     this.setState({ route: r });
   },
-  retContacts: function () {
+  gettContacts: function () {
     return this.props.jsonContacts;
   },
-  retGroups: function () {
+  getGroups: function () {
     return this.props.jsonGroups;
   },
   render() {
@@ -27,13 +27,13 @@ window.App = React.createClass({
     switch (route) {
 
       case "ScoreBoard":
-        return (<ScreenScoreBoard getContacts={this.retContacts} setRoute={this.setRoute} />);
+        return (<ScreenScoreBoard getContacts={this.getContacts} setRoute={this.setRoute} />);
       case "AddContact":
         return (<ScreenAddContact setRoute={this.setRoute} />);
       case "GroupDetails":
         return (<ScreenGroupDetails setRoute={this.setRoute} />);
       case "GroupList" :
-        return (<ScreenGroupList getGroups={this.retGroups} setRoute={this.setRoute} />);
+        return (<ScreenGroupList getGroups={this.getGroups} setRoute={this.setRoute} />);
       case "FeedsAndCreatePost" :
         return (<ScreenFeedsAndCreatePost setRoute={this.setRoute} />);
       default:
