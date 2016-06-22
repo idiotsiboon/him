@@ -3,7 +3,7 @@ var Post = React.createClass({
     return (
       <li className="table-view-cell">
         <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
-        {this.props.content}
+        {this.props.postObj.content}
       </li>
     );
   }
@@ -28,9 +28,13 @@ window.ScreenFeedsAndCreatePost = React.createClass({
     );
   },
   renderFeeds: function () {
+    var jsonPosts = this.props.getPosts();
+    var arrPosts = jsonPosts.map(function (o) {
+      return <Post postObj={o} />;
+    });
     return (
       <ul className="table-view">
-        <Post content="abc" />
+        {arrPosts}
       </ul>
     );
   },

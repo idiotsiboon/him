@@ -9,7 +9,7 @@ ScreenFeedsAndCreatePost
 window.App = React.createClass({
   getInitialState: function () {
     return {
-      route: "GroupDetails"
+      route: "GroupList"
     };
   },
   setRoute(r) {
@@ -32,13 +32,13 @@ window.App = React.createClass({
       case "ScoreBoard":
         return (<ScreenScoreBoard getContacts={this.getContacts} setRoute={this.setRoute} />);
       case "AddContact":
-        return (<ScreenAddContact setRoute={this.setRoute} />);
+        return (<ScreenAddContact getContacts={this.getContacts} setRoute={this.setRoute} />);
       case "GroupDetails":
         return (<ScreenGroupDetails setRoute={this.setRoute} />);
       case "GroupList" :
         return (<ScreenGroupList getGroups={this.getGroups} setRoute={this.setRoute} />);
       case "FeedsAndCreatePost" :
-        return (<ScreenFeedsAndCreatePost setRoute={this.setRoute} />);
+        return (<ScreenFeedsAndCreatePost getPosts={this.getPosts} setRoute={this.setRoute} />);
       default:
         return ("No");
 
