@@ -29,8 +29,11 @@ window.ScreenFeedsAndCreatePost = React.createClass({
   },
   renderFeeds: function () {
     var jsonPosts = this.props.getPosts();
+    var groupId = this.props.getGroupId();
     var arrPosts = jsonPosts.map(function (o) {
-      return <Post postObj={o} />;
+      if (o.groupId === groupId) {
+        return <Post postObj={o} />;
+      }
     });
     return (
       <ul className="table-view">

@@ -111,32 +111,38 @@ window.ContactsJson = [
     {
       "id": "576265f4f92109d1d05b517b",
       "contactName": "Pearl Le",
-      "posts": ["576265f4ebc594e544bf9a46","576265f4d93219e51c3697aa"]
+      "posts": ["576265f4ebc594e544bf9a46","576265f4d93219e51c3697aa"],
+      "score":111
     },
     {
       "id": "576265f417003fd1d77196b1",
       "contactName": "Roxanne Houston",
-      "posts": ["576265f479864e70140b08fe","576265f4b05d4daa823d0bee"]
+      "posts": ["576265f479864e70140b08fe","576265f4b05d4daa823d0bee"],
+      "score":16
     },
     {
       "id": "576265f4dae8b97c23ba22a2",
       "contactName": "Millie Robbins",
-      "posts": ["576265f4db412219653f0658","576265f49fd311176f137c9b"]
+      "posts": ["576265f4db412219653f0658","576265f49fd311176f137c9b"],
+      "score":10
     },
     {
       "id": "576265f46aea545219deec9e",
       "contactName": "Vincent Tate",
-      "posts": ["576265f469f6cd8465a96c4d","576265f453f4a0fbad5eb410"]
+      "posts": ["576265f469f6cd8465a96c4d","576265f453f4a0fbad5eb410"],
+      "score":13
     },
     {
       "id": "576265f4ab6ac4bba9bd5598",
       "contactName": "Pickett Nieves",
-      "posts": ["576265f4f7a41701fa4bf09d","576265f4c18044c7daaf8afd"]
+      "posts": ["576265f4f7a41701fa4bf09d","576265f4c18044c7daaf8afd"],
+      "score":9
     },
     {
       "id": "576265f451e176f8bc5e2d50",
       "contactName": "Gates Williamson",
-      "posts": ["576265f4a709dde4d31321fb","576265f448e795a292a8b34f"]
+      "posts": ["576265f4a709dde4d31321fb","576265f448e795a292a8b34f"],
+      "score":11
     }
   ];
 

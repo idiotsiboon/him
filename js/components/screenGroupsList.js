@@ -5,7 +5,8 @@ var Group = React.createClass({
     return this.props.groupObj.users.length;
   },
   handleSelectGroup: function () {
-    console.log(this.props.groupObj.id);
+    this.props.setGroupId(this.props.groupObj.id);
+    this.props.setRoute("FeedsAndCreatePost");
   },
   render: function () {
     return (
@@ -21,9 +22,6 @@ var Group = React.createClass({
 });
 
 window.ScreenGroupList = React.createClass({
-  handleNavFeeds: function () {
-    this.props.setRoute("ScoreBoard");
-  },
   handleHeadAddGroup: function () {
     this.props.setRoute("GroupDetails");
   },
@@ -42,11 +40,10 @@ window.ScreenGroupList = React.createClass({
   },
   renderListOfGroups: function () {
     var jsonGroups = this.props.getGroups();
+    var setRoute = this.props.setRoute;
+    var setGroupId = this.props.setGroupId;
     var arrGroups = jsonGroups.map(function (o) {
-      // here setRoute is not working..not in scope? do we need state here?
-      //  neede to pass change Route..and pass groupId..to show posts of groupId
-      // return <Group groupObj={o} setRoute={this.props.setRoute} />;
-      return <Group groupObj={o} />;
+      return <Group groupObj={o} setRoute={setRoute} setGroupId={setGroupId} />;
     });
     return (
       <ul className="table-view">
@@ -76,7 +73,7 @@ window.ScreenGroupList = React.createClass({
         <div className="content">
           {this.renderListOfGroups()}
         </div>
-        {this.renderNav()}
+        // renderNav
       </div>
     );
   }

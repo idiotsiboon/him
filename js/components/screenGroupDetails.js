@@ -5,26 +5,33 @@ window.ScreenGroupDetails = React.createClass({
   handleNavGroupList: function () {
     this.props.setRoute("GroupList");
   },
-  handleNavAddContacts: function () {
-    this.props.setRoute("AddContact");
-  },
   renderGroupName: function () {
-    return "";
+    var groupId = this.props.getGroupId();
+    var name;
+    var i;
+    var groupJson = this.props.getGroups();
+    for (i = 0; i < groupJson.length; i++) {
+      if (groupJson[i].id === groupId) {
+        name = groupJson[i].groupName;
+      }
+    }
+    return name;
   },
   renderGroupRules: function () {
+    var groupId = this.props.getGroupId();
+    var rules;
+    var i;
+    var groupJson = this.props.getGroups();
+    for (i = 0; i < groupJson.length; i++) {
+      if (groupJson[i].id === groupId) {
+        rules = groupJson[i].groupRules;
+      }
+    }
     return (
       <form>
-        <textarea rows="5"></textarea>
+        <textarea rows="5">{rules}</textarea>
         <a className="btn btn-positive btn-block">Finish</a>
       </form>
-    );
-  },
-  renderButtonNavAddContacts: function () {
-    return (
-      <a onClick={this.handleNavAddContacts} className="tab-item">
-        <span className="icon icon-person"></span>
-        <span className="tab-label">AddMembers</span>
-      </a>
     );
   },
   renderButtonNavScoreBoard: function () {
@@ -48,14 +55,13 @@ window.ScreenGroupDetails = React.createClass({
       <nav className="bar bar-tab">
         {this.renderButtonNavGroupList()}
         {this.renderButtonNavScoreBoard()}
-        {this.renderButtonNavAddContacts()}
       </nav>
     );
   },
   renderHead: function () {
     return (
       <header className="bar bar-nav">
-        <h1 className="title">__Group Name__</h1>
+        <h1 className="title">{this.renderGroupName()}</h1>
       </header>
     );
   },
