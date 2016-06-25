@@ -4,13 +4,15 @@ ScreenAddContact
 ScreenGroupDetails
 ScreenGroupList
 ScreenFeedsAndCreatePost
+ScreenCreatePost
 */
 
 window.App = React.createClass({
   getInitialState: function () {
     return {
       route: "GroupList",
-      groupId: "abc"
+      groupId: "abc",
+      posts: this.props.jsonPosts
     };
   },
   setRoute(r) {
@@ -26,7 +28,13 @@ window.App = React.createClass({
     return this.props.jsonGroups;
   },
   getPosts: function () {
-    return this.props.jsonPosts;
+    return this.state.posts;
+  },
+  createPost: function (postObj) {
+    this.setState({
+      posts: this.state.posts.concat(postObj)
+    });
+    // console.log(postObj)
   },
   render() {
     const route = this.state.route;
@@ -68,6 +76,15 @@ window.App = React.createClass({
             setRoute={this.setRoute}
           />
         );
+      case "CreatePost":
+        return (
+          <ScreenCreatePost
+            groupId={this.state.groupId}
+            setRoute={this.setRoute}
+            createPost={this.createPost}
+          />
+        );
+
       default:
         return ("No");
 

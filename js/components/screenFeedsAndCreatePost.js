@@ -17,15 +17,7 @@ window.ScreenFeedsAndCreatePost = React.createClass({
     this.props.setRoute("GroupList");
   },
   handleNavCreatePost: function () {
-    this.props.setRoute("FeedsAndCreatePost");
-  },
-  renderCreatePost: function () {
-    return (
-      <div className="bar bar-standard bar-footer-secondary">
-        <input type="search" placeholder="Start Here" />
-        <a className="btn btn-positive btn-block">Post</a>
-      </div>
-    );
+    this.props.setRoute("CreatePost");
   },
   renderFeeds: function () {
     var jsonPosts = this.props.getPosts();
@@ -66,13 +58,13 @@ window.ScreenFeedsAndCreatePost = React.createClass({
     );
   },
   renderNav: function () {
-    return (
-      <nav className="bar bar-tab">
-        {this.renderButtonNavGroupList()}
-        {this.renderButtonNavScoreBoard()}
-        {this.renderButtonNavCreatePost()}
-      </nav>
-    );
+      return (
+        <nav className="bar bar-tab">
+          {this.renderButtonNavGroupList()}
+          {this.renderButtonNavScoreBoard()}
+          {this.renderButtonNavCreatePost()}
+        </nav>
+      );
   },
   renderHead: function () {
     return (
