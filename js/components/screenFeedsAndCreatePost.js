@@ -29,7 +29,7 @@ window.ScreenFeedsAndCreatePost = React.createClass({
   },
   renderFeeds: function () {
     var jsonPosts = this.props.getPosts();
-    var groupId = this.props.getGroupId();
+    var groupId = this.props.groupId;
     var arrPosts = jsonPosts.map(function (o) {
       if (o.groupId === groupId) {
         return <Post postObj={o} />;

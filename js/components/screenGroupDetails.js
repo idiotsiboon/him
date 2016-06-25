@@ -6,7 +6,7 @@ window.ScreenGroupDetails = React.createClass({
     this.props.setRoute("GroupList");
   },
   renderGroupName: function () {
-    var groupId = this.props.getGroupId();
+    var groupId = this.props.groupId;
     var name;
     var i;
     var groupJson = this.props.getGroups();

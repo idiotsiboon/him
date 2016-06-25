@@ -33,7 +33,7 @@ window.ScreenScoreBoard = React.createClass({
     var i;
     var jsonContacts = this.props.getContacts();
     var jsonGroups = this.props.getGroups();
-    var groupId = this.props.getGroupId();
+    var groupId = this.props.groupId;
     //  a temp fix
     for (i = 0; i < jsonGroups.length; i++) {
       if (jsonGroups[i].id === groupId) {

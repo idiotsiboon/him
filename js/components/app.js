@@ -19,9 +19,6 @@ window.App = React.createClass({
   setGroupId(i) {
     this.setState({ groupId: i });
   },
-  getGroupId() {
-    return this.state.groupId;
-  },
   getContacts: function () {
     return this.props.jsonContacts;
   },
@@ -42,7 +39,7 @@ window.App = React.createClass({
             getContacts={this.getContacts}
             getGroups={this.getGroups}
             setRoute={this.setRoute}
-            getGroupId={this.getGroupId}
+            groupId={this.state.groupId}
           />
         );
       case "AddContact":
@@ -51,7 +48,7 @@ window.App = React.createClass({
         return (
           <ScreenGroupDetails
             setRoute={this.setRoute}
-            getGroupId={this.getGroupId}
+            groupId={this.state.groupId}
             getGroups={this.getGroups}
           />
         );
@@ -67,7 +64,7 @@ window.App = React.createClass({
         return (
           <ScreenFeedsAndCreatePost
             getPosts={this.getPosts}
-            getGroupId={this.getGroupId}
+            groupId={this.state.groupId}
             setRoute={this.setRoute}
           />
         );
