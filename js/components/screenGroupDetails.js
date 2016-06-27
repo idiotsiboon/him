@@ -18,7 +18,7 @@ window.ScreenGroupDetails = React.createClass({
     return name;
   },
   renderGroupRules: function () {
-    var groupId = this.props.getGroupId();
+    var groupId = this.props.groupId;
     var rules;
     var i;
     var groupJson = this.props.getGroups();

@@ -1,10 +1,16 @@
 window.ScreenCreatePost = React.createClass({
+  getInitialState: function () {
+    return { content: "" };
+  },
+  handleContentChange: function (e) {
+    this.setState({ content: e.target.value });
+  },
   handleSubmitPost: function () {
     var post = {
       id: Math.random(),
       groupId: this.props.groupId,
       contactId: "576265f4f92109d1d05b517b",
-      content: this.refs.postInput.value,
+      content: this.state.content
     };
     this.props.createPost(post);
     this.props.setRoute("FeedsAndCreatePost");
@@ -22,7 +28,12 @@ window.ScreenCreatePost = React.createClass({
   renderCreatePost: function () {
     return (
       <div>
-        <textarea rows="5" placeholder="Start Here" ref="postInput" />
+        <textarea
+          rows="5"
+          placeholder="Start Here"
+          value={this.state.content}
+          onChange={this.handleContentChange}
+        />
         <a
           className="btn btn-block btn-outlined btn-positive"
           onClick={this.handleSubmitPost}
