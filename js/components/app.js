@@ -12,7 +12,8 @@ window.App = React.createClass({
     return {
       route: "GroupList",
       groupId: "abc",
-      posts: this.props.jsonPosts
+      posts: this.props.jsonPosts,
+      groups: this.props.jsonGroups
     };
   },
   setRoute(r) {
@@ -25,10 +26,15 @@ window.App = React.createClass({
     return this.props.jsonContacts;
   },
   getGroups: function () {
-    return this.props.jsonGroups;
+    return this.state.groups;
   },
   getPosts: function () {
     return this.state.posts;
+  },
+  createGroup: function (groupsObj) {
+    this.setState({
+      groups: this.state.groups.concat(groupsObj)
+    });
   },
   createPost: function (postObj) {
     this.setState({

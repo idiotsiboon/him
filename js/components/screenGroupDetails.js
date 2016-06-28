@@ -1,9 +1,32 @@
 window.ScreenGroupDetails = React.createClass({
+  getInitialState: function () {
+    return {
+      finishButtonVisible: false,
+      rules: ""
+    };
+  },
+  handleSubmitGroup: function () {
+    var group = {
+      id: Math.random(),
+      groupName: "TUBESYS3",
+      groupRules: "",
+      posts: [],
+      users: []
+    };
+    console.log(group);
+    // this.props.createGroup(group);
+    this.props.setRoute("GroupList");
+  },
   handleNavScoreBoard: function () {
     this.props.setRoute("ScoreBoard");
   },
   handleNavGroupList: function () {
     this.props.setRoute("GroupList");
+  },
+  handleRulesChange: function (e) {
+    this.setState({
+      rules: e.target.value
+    });
   },
   renderGroupName: function () {
     var groupId = this.props.groupId;
@@ -17,20 +40,33 @@ window.ScreenGroupDetails = React.createClass({
     }
     return name;
   },
+  renderFinishButton: function () {
+    return (
+      <a
+        className="btn btn-positive btn-block"
+        onClick={this.handleSubmitGroup}
+      >Finish</a>
+    );
+  },
   renderGroupRules: function () {
     var groupId = this.props.groupId;
-    var rules;
     var i;
     var groupJson = this.props.getGroups();
     for (i = 0; i < groupJson.length; i++) {
       if (groupJson[i].id === groupId) {
-        rules = groupJson[i].groupRules;
+        this.setState({
+          rules: groupJson[i].groupRules
+        });
       }
     }
     return (
       <form>
-        <textarea rows="5">{rules}</textarea>
-        <a className="btn btn-positive btn-block">Finish</a>
+        <textarea
+          rows="5"
+          value={this.state.rules}
+          onChange={this.handleRulesChange}
+        > </textarea>
+        {this.state.finishButtonVisible ? this.renderFinishButton() : null}
       </form>
     );
   },
