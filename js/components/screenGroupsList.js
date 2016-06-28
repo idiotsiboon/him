@@ -1,18 +1,27 @@
 /* global screenGroupList */
 var Group = React.createClass({
+  getStrength: function () {
+    // no of unread posts..for the time being no of users
+    return this.props.groupObj.users.length;
+  },
+  handleSelectGroup: function () {
+    this.props.setGroupId(this.props.groupObj.id);
+    this.props.setRoute("FeedsAndCreatePost");
+  },
   render: function () {
     return (
       <li className="table-view-cell">
-        <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
-        {this.props.groupName}
+        <a className="navigate-right" onClick={this.handleSelectGroup}>
+          <span className="badge">{this.getStrength()}</span>
+          <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
+          {this.props.groupObj.groupName}
+        </a>
       </li>
     );
   }
 });
+
 window.ScreenGroupList = React.createClass({
-  handleNavFeeds: function () {
-    this.props.setRoute("ScoreBoard");
-  },
   handleHeadAddGroup: function () {
     this.props.setRoute("GroupDetails");
   },
@@ -30,9 +39,15 @@ window.ScreenGroupList = React.createClass({
     );
   },
   renderListOfGroups: function () {
+    var jsonGroups = this.props.getGroups();
+    var setRoute = this.props.setRoute;
+    var setGroupId = this.props.setGroupId;
+    var arrGroups = jsonGroups.map(function (o) {
+      return <Group groupObj={o} setRoute={setRoute} setGroupId={setGroupId} />;
+    });
     return (
       <ul className="table-view">
-        <Group groupName="abc" />
+        {arrGroups}
       </ul>
     );
   },
@@ -58,7 +73,7 @@ window.ScreenGroupList = React.createClass({
         <div className="content">
           {this.renderListOfGroups()}
         </div>
-        {this.renderNav()}
+        // renderNav
       </div>
     );
   }

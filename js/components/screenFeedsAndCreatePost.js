@@ -3,7 +3,7 @@ var Post = React.createClass({
     return (
       <li className="table-view-cell">
         <img className="media-object pull-left" src="http://placehold.it/42x42" role="presentation"></img>
-        {this.props.content}
+        {this.props.postObj.content}
       </li>
     );
   }
@@ -17,20 +17,19 @@ window.ScreenFeedsAndCreatePost = React.createClass({
     this.props.setRoute("GroupList");
   },
   handleNavCreatePost: function () {
-    this.props.setRoute("FeedsAndCreatePost");
-  },
-  renderCreatePost: function () {
-    return (
-      <div className="bar bar-standard bar-footer-secondary">
-        <input type="search" placeholder="Start Here" />
-        <a className="btn btn-positive btn-block">Post</a>
-      </div>
-    );
+    this.props.setRoute("CreatePost");
   },
   renderFeeds: function () {
+    var jsonPosts = this.props.getPosts();
+    var groupId = this.props.groupId;
+    var arrPosts = jsonPosts.map(function (o) {
+      if (o.groupId === groupId) {
+        return <Post postObj={o} />;
+      }
+    });
     return (
       <ul className="table-view">
-        <Post content="abc" />
+        {arrPosts}
       </ul>
     );
   },
@@ -59,13 +58,13 @@ window.ScreenFeedsAndCreatePost = React.createClass({
     );
   },
   renderNav: function () {
-    return (
-      <nav className="bar bar-tab">
-        {this.renderButtonNavGroupList()}
-        {this.renderButtonNavScoreBoard()}
-        {this.renderButtonNavCreatePost()}
-      </nav>
-    );
+      return (
+        <nav className="bar bar-tab">
+          {this.renderButtonNavGroupList()}
+          {this.renderButtonNavScoreBoard()}
+          {this.renderButtonNavCreatePost()}
+        </nav>
+      );
   },
   renderHead: function () {
     return (

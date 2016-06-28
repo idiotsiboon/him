@@ -4,35 +4,93 @@ ScreenAddContact
 ScreenGroupDetails
 ScreenGroupList
 ScreenFeedsAndCreatePost
+ScreenCreatePost
 */
 
 window.App = React.createClass({
   getInitialState: function () {
     return {
-      route: "GroupDetails"
+      route: "GroupList",
+      groupId: "abc",
+      posts: this.props.jsonPosts,
+      groups: this.props.jsonGroups
     };
   },
-
   setRoute(r) {
     this.setState({ route: r });
   },
-
-
+  setGroupId(i) {
+    this.setState({ groupId: i });
+  },
+  getContacts: function () {
+    return this.props.jsonContacts;
+  },
+  getGroups: function () {
+    return this.state.groups;
+  },
+  getPosts: function () {
+    return this.state.posts;
+  },
+  createGroup: function (groupsObj) {
+    this.setState({
+      groups: this.state.groups.concat(groupsObj)
+    });
+  },
+  createPost: function (postObj) {
+    this.setState({
+      posts: this.state.posts.concat(postObj)
+    });
+    // console.log(postObj)
+  },
   render() {
     const route = this.state.route;
 
     switch (route) {
 
       case "ScoreBoard":
-        return (<ScreenScoreBoard setRoute={this.setRoute} />);
+        return (
+          <ScreenScoreBoard
+            getContacts={this.getContacts}
+            getGroups={this.getGroups}
+            setRoute={this.setRoute}
+            groupId={this.state.groupId}
+          />
+        );
       case "AddContact":
-        return (<ScreenAddContact setRoute={this.setRoute} />);
+        return (<ScreenAddContact getContacts={this.getContacts} setRoute={this.setRoute} />);
       case "GroupDetails":
-        return (<ScreenGroupDetails setRoute={this.setRoute} />);
+        return (
+          <ScreenGroupDetails
+            setRoute={this.setRoute}
+            groupId={this.state.groupId}
+            getGroups={this.getGroups}
+          />
+        );
       case "GroupList" :
-        return (<ScreenGroupList setRoute={this.setRoute} />);
+        return (
+          <ScreenGroupList
+            getGroups={this.getGroups}
+            setRoute={this.setRoute}
+            setGroupId={this.setGroupId}
+          />
+          );
       case "FeedsAndCreatePost" :
-        return (<ScreenFeedsAndCreatePost setRoute={this.setRoute} />);
+        return (
+          <ScreenFeedsAndCreatePost
+            getPosts={this.getPosts}
+            groupId={this.state.groupId}
+            setRoute={this.setRoute}
+          />
+        );
+      case "CreatePost":
+        return (
+          <ScreenCreatePost
+            groupId={this.state.groupId}
+            setRoute={this.setRoute}
+            createPost={this.createPost}
+          />
+        );
+
       default:
         return ("No");
 
